@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead Man's Switch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Dead Man's Switch</h1>
+            <p class="subtitle">A smart inheritance system for crypto assets</p>
+            <div id="wallet-status" class="wallet-status">
+                <span id="wallet-address"></span>
+                <span id="network-name"></span>
+            </div>
+        </header>
+
+        <main>
+            <section class="card contract-info">
+                <h2>Contract Status</h2>
+                <div class="info-grid">
+                    <div>
+                        <label>Owner:</label>
+                        <span id="owner" class="monospace"></span>
+                    </div>
+                    <div>
+                        <label>Heir:</label>
+                        <span id="heir" class="monospace"></span>
+                    </div>
+                    <div>
+                        <label>Last Check-in:</label>
+                        <span id="lastCheckIn"></span>
+                    </div>
+                    <div>
+                        <label>Check-in Interval:</label>
+                        <span id="checkInInterval"></span>
+                    </div>
+                    <div>
+                        <label>Contract Balance:</label>
+                        <span id="balance"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card owner-actions">
+                <h2>Owner Controls</h2>
+                <div class="action-group">
+                    <button id="checkInBtn" class="btn primary">✅ Check In</button>
+                    <p class="hint">Prove you're still active</p>
+                </div>
+                
+                <div class="action-group">
+                    <div class="input-group">
+                        <input type="text" id="newHeirInput" placeholder="0x...">
+                        <button id="changeHeirBtn" class="btn secondary">Change Heir</button>
+                    </div>
+                    <p class="hint">Set new inheritance recipient</p>
+                </div>
+                
+                <div class="action-group">
+                    <div class="input-group">
+                        <input type="number" id="depositAmount" placeholder="0.1" step="0.01" min="0">
+                        <span class="eth-label">ETH</span>
+                        <button id="depositBtn" class="btn primary">Deposit</button>
+                    </div>
+                    <p class="hint">Add funds to the contract</p>
+                </div>
+            </section>
+
+            <section class="card heir-actions">
+                <h2>Heir Controls</h2>
+                <div class="action-group">
+                    <button id="withdrawBtn" class="btn warning">💸 Withdraw Funds</button>
+                    <p class="hint">Claim funds if owner is inactive</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Smart contract inheritance system | Built for Ethereum</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
